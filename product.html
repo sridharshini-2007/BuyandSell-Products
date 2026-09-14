@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UsedMart - Classifieds</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+<nav class="navbar">
+
+    <div class="logo">
+        Used<span>Mart</span>
+    </div>
+    <div class="nav-links">
+        <button onclick="showPage('buyPage')" id="buyNav" class="active">
+            🛍️ Buy
+        </button>
+        <button onclick="showPage('sellPage')" id="sellNav">
+            📦 Sell
+        </button>
+        <button onclick="showPage('profilePage')" id="profileNav">
+            👤 My Profile
+        </button>
+    </div>
+</nav>
+
+<div class="notification" id="notification"></div>
+<section id="buyPage" class="page active">
+    <h1 class="page-title">Buy Used Products</h1>
+    <p class="page-subtitle">
+        Find quality second-hand products at affordable prices.
+    </p>
+    <div class="search-area">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            onkeyup="displayProducts()"
+        >
+        <select id="categoryFilter" onchange="displayProducts()">
+            <option value="all">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Books">Books</option>
+            <option value="Vehicles">Vehicles</option>
+            <option value="Fashion">Fashion</option>
+        </select>
+    </div>
+    <div id="productGrid" class="product-grid"></div>
+</section>
+
+<section id="sellPage" class="page">
+    <h1 class="page-title">Sell Your Product</h1>
+    <p class="page-subtitle">
+        List your used product and connect with buyers.
+    </p>
+    <div class="form-container">
+        <form id="sellForm">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Eg: iPhone 13"
+                    required >
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select id="productCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Books">Books</option>
+                    <option value="Vehicles">Vehicles</option>
+                    <option value="Fashion">Fashion</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input
+                    type="number"
+                    id="productPrice"
+                    placeholder="Enter price"
+                    min="1"
+                    required >
+            </div>
+
+            <div class="form-group">
+                <label>Product Image URL</label>
+                <input
+                    type="url"
+                    id="productImage"
+                    placeholder="Paste image URL"
+                    required >
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea
+                    id="productDescription"
+                    placeholder="Describe the product condition..."
+                    required
+                ></textarea>
+            </div>
+            <button class="sell-btn" type="submit">
+                + List Product
+            </button>
+        </form>
+    </div>
+</section>
+
+<section id="profilePage" class="page">
+    <h1 class="page-title">My Profile</h1>
+    <p class="page-subtitle">
+        Manage your account and listed products.
+    </p>
+    <div class="profile-header">
+        <div class="profile-avatar">
+            S
+        </div>
+        <div class="profile-info">
+            <h2>Sridharshini</h2>
+            <p>📧dharshini@example.com</p>
+            <div class="profile-stats">
+                <div class="stat">
+                    <strong id="listedCount">0</strong>
+                    Products Listed
+                </div>
+
+                <div class="stat">
+                    <strong id="purchaseCount">0</strong>
+                    Products Bought
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>My Listed Products</h2>
+    <br>
+    <div id="myProducts" class="product-grid"></div>
+</section>
+<script src="product.js"></script>
+</body>
+</html>
