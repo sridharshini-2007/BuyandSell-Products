@@ -13,7 +13,7 @@ let defaultProducts = [
         name: "Study Table",
         category: "Furniture",
         price: 2500,
-        image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6b7?w=500",
+        image: "https://cdn.moglix.com/p/dQeqbvgukcNCu-xxlarge.jpg",
         description: "Wooden study table with drawers.",
         owner: "Other"
     },
